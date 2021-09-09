@@ -1090,38 +1090,38 @@ var toolbarBuiltInButtons = {
 	"heading": {
 		name: "heading",
 		action: toggleHeadingSmaller,
-		className: "fa fa-header",
+		className: "fa fa-heading fa-header",
 		title: "Heading",
 		default: true
 	},
 	"heading-smaller": {
 		name: "heading-smaller",
 		action: toggleHeadingSmaller,
-		className: "fa fa-header fa-header-x fa-header-smaller",
+		className: "fa fa-heading fa-heading-x fa-heading-smaller fa-header fa-header-x fa-header-smaller",
 		title: "Smaller Heading"
 	},
 	"heading-bigger": {
 		name: "heading-bigger",
 		action: toggleHeadingBigger,
-		className: "fa fa-header fa-header-x fa-header-bigger",
+		className: "fa fa-heading fa-heading-x fa-heading-bigger fa-header fa-header-x fa-header-bigger",
 		title: "Bigger Heading"
 	},
 	"heading-1": {
 		name: "heading-1",
 		action: toggleHeading1,
-		className: "fa fa-header fa-header-x fa-header-1",
+		className: "fa fa-heading fa-heading-x fa-heading-1 fa-header fa-header-x fa-header-1",
 		title: "Big Heading"
 	},
 	"heading-2": {
 		name: "heading-2",
 		action: toggleHeading2,
-		className: "fa fa-header fa-header-x fa-header-2",
+		className: "fa fa-heading fa-heading-x fa-heading-2 fa-header fa-header-x fa-header-2",
 		title: "Medium Heading"
 	},
 	"heading-3": {
 		name: "heading-3",
 		action: toggleHeading3,
-		className: "fa fa-header fa-header-x fa-header-3",
+		className: "fa fa-heading fa-heading-x fa-heading-3 fa-header fa-header-x fa-header-3",
 		title: "Small Heading"
 	},
 	"separator-1": {
@@ -1173,7 +1173,7 @@ var toolbarBuiltInButtons = {
 	"image": {
 		name: "image",
 		action: drawImage,
-		className: "fa fa-picture-o",
+		className: "fa fa-image fa-picure-o",
 		title: "Insert Image",
 		default: true
 	},
@@ -1283,7 +1283,7 @@ function SimpleMDE(options) {
 			if(!styleSheets[i].href)
 				continue;
 
-			if(styleSheets[i].href.indexOf("//maxcdn.bootstrapcdn.com/font-awesome/") > -1) {
+			if(styleSheets[i].href.indexOf("//cdnjs.cloudflare.com/ajax/libs/font-awesome/") > -1) {
 				autoDownloadFA = false;
 			}
 		}
@@ -1292,7 +1292,7 @@ function SimpleMDE(options) {
 	if(autoDownloadFA) {
 		var link = document.createElement("link");
 		link.rel = "stylesheet";
-		link.href = "https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css";
+		link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css";
 		document.getElementsByTagName("head")[0].appendChild(link);
 	}
 
@@ -1532,7 +1532,7 @@ function isLocalStorageAvailable() {
 		try {
 			localStorage.setItem("smde_localStorage", 1);
 			localStorage.removeItem("smde_localStorage");
-		} catch(e) {
+		} catch (e) {
 			return false;
 		}
 	} else {

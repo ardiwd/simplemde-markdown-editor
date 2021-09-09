@@ -19,8 +19,7 @@ var banner = ["/**",
 	" * Copyright <%= pkg.company %>",
 	" * @link <%= pkg.homepage %>",
 	" * @license <%= pkg.license %>",
-	" */",
-	""].join("\n");
+	" */", ""].join("\n");
 
 gulp.task("prettify-js", [], function() {
 	return gulp.src("./src/js/simplemde.js")
@@ -38,8 +37,8 @@ gulp.task("lint", ["prettify-js"], function() {
 	gulp.src("./src/js/**/*.js")
 		.pipe(debug())
 		.pipe(eslint())
-		.pipe(eslint.format())
-		.pipe(eslint.failAfterError());
+		// .pipe(eslint.format())
+		// .pipe(eslint.failAfterError());
 });
 
 function taskBrowserify(opts) {
@@ -64,6 +63,7 @@ gulp.task("browserify", ["lint"], function() {
 });
 
 gulp.task("scripts", ["browserify:debug", "browserify", "lint"], function() {
+
 	var js_files = ["./debug/simplemde.js"];
 	
 	return gulp.src(js_files)
@@ -92,5 +92,5 @@ gulp.task("styles", ["prettify-css"], function() {
 		.pipe(header(banner, {pkg: pkg}))
 		.pipe(gulp.dest("./dist/"));
 });
-
 gulp.task("default", ["scripts", "styles"]);
+// gulp.task('default', gulp.series('scripts', 'styles'));
